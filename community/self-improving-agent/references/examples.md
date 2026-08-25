@@ -16,13 +16,13 @@ Concrete examples of well-formatted entries with all fields.
 Incorrectly assumed pytest fixtures are scoped to function by default
 
 ### Details
-When writing test fixtures, I assumed all fixtures were function-scoped.
-User corrected that while function scope is the default, the codebase
-convention uses module-scoped fixtures for database connections to
+When writing test fixtures, I assumed all fixtures were function-scoped. 
+User corrected that while function scope is the default, the codebase 
+convention uses module-scoped fixtures for database connections to 
 improve test performance.
 
 ### Suggested Action
-When creating fixtures that involve expensive setup (DB, network),
+When creating fixtures that involve expensive setup (DB, network), 
 check existing fixtures for scope patterns before defaulting to function scope.
 
 ### Metadata
@@ -82,8 +82,8 @@ Use `pnpm install` for this project.
 API responses must include correlation ID from request headers
 
 ### Details
-All API responses should echo back the X-Correlation-ID header from
-the request. This is required for distributed tracing. Responses
+All API responses should echo back the X-Correlation-ID header from 
+the request. This is required for distributed tracing. Responses 
 without this header break the observability pipeline.
 
 ### Suggested Action
@@ -172,15 +172,15 @@ Or update Dockerfile: `FROM --platform=linux/amd64 python:3.11-slim`
 **Area**: backend
 
 ### Summary
-Third-party payment API timeout during checkout
+Third-party API timeout during request processing
 
 ### Error
 ```
-TimeoutError: Request to payments.example.com timed out after 30000ms
+TimeoutError: Request to api.example.com timed out after 30000ms
 ```
 
 ### Context
-- Command: POST /api/checkout
+- Command: POST /api/process
 - Timeout set to 30s
 - Occurs during peak hours (lunch, evening)
 
@@ -189,7 +189,7 @@ Implement retry with exponential backoff. Consider circuit breaker pattern.
 
 ### Metadata
 - Reproducible: yes (during peak hours)
-- Related Files: src/services/payment.ts
+- Related Files: src/services/api-client.ts
 - See Also: ERR-20250115-X1Y, ERR-20250118-Z3W
 
 ---
@@ -209,7 +209,7 @@ Implement retry with exponential backoff. Consider circuit breaker pattern.
 Export analysis results to CSV format
 
 ### User Context
-User runs weekly reports and needs to share results with non-technical
+User runs weekly reports and needs to share results with non-technical 
 stakeholders in Excel. Currently copies output manually.
 
 ### Complexity Estimate
@@ -370,5 +370,5 @@ alternatives when possible.
 
 - Learning ID: LRN-20250118-001
 - Category: best_practice
-- Extraction created: 2025-01-18
+- Extraction Date: 2025-01-18
 ```
