@@ -5,32 +5,32 @@ description: Use for API keys, Tokens, credentials, credential configuration, .e
 
 # Bit Secret Manager
 
-`bit-secret-manager` is the execution boundary for local secrets. Bitwarden
-Secrets Manager is the only authority for values; local TOML stores only Secret
-IDs, expected keys, and target environment names.
+`bit-secret-manager` is the execution boundary for local secrets. A schema 2
+navigation file stores only profile metadata: BWS Secret IDs and expected keys,
+or local logical keys, plus target environment names. BWS values remain in
+Bitwarden; local values remain in the device-private store.
 
 ## Route
 
-1. Identify the executable and the environment variables it needs. Treat Secret
-   IDs, expected keys, profile names, and environment names as non-secret
-   metadata. The step is complete when every required variable has one mapping.
-2. Find an existing profile in
-   `~/.config/bit-secret-manager/config.toml`. Keep the directory `0700` and the
-   configuration `0600`. When the configuration is absent, do not create it by
-   hand: have the human run `bit-secret-manager init` and enter the non-secret
-   mappings in its first-use prompts. When a valid configuration exists but a
-   mapping is missing, stop execution and ask the user to create or select the
-   BWS Secret and approve adding only its ID, expected key, profile, and target
-   environment name. The step is complete when one profile covers the command
-   atomically.
-3. Require `bit-secret-manager doctor` to pass. Interactive `init` creates the
-   first configuration when absent; with an existing configuration it only
-   initializes or rotates the Token without rewriting mappings. A trusted local
-   pipe may use `init --token-stdin` only after a valid configuration exists.
-   Keep Machine Account Tokens out of chat, argv, command output, logs, notes,
-   and shell-sourceable files. If a value is pasted in chat, do not repeat or
-   persist it; stop and direct the user to rotate it.
-4. Execute an argv through the profile:
+1. Identify the executable and each required environment variable. Classify
+   each as `bws` or `local`; IDs, expected keys, logical keys, profile names,
+   and environment names are non-secret metadata. Every variable needs one
+   mapping in a complete Profile.
+2. Find a schema 2 profile in the user's Vault navigation configuration. Do not
+   create or edit that shared file automatically. When a mapping is absent,
+   stop execution and ask the user to approve adding only source metadata. A
+   legacy schema 1 private configuration may be used only with explicit
+   `--config`.
+3. Have the human initialize a schema 2 file with
+   `bit-secret-manager --config /absolute/path/to/config.toml init`. This writes
+   only a private device pointer and, when BWS entries exist, obtains a Token by
+   hidden input. For a local mapping, have the human run
+   `bit-secret-manager set-local LOGICAL_KEY` and enter the value by hidden
+   input. Never accept a value or Token in chat, argv, output, notes, logs, or
+   shell-sourceable files.
+4. Require `bit-secret-manager doctor PROFILE` to pass before a targeted run,
+   or use `doctor` for a full-device check. Then execute an argv through the
+   profile:
 
    ```bash
    bit-secret-manager run PROFILE -- executable arg1 arg2
@@ -45,14 +45,17 @@ IDs, expected keys, and target environment names.
   and secret-in-argument requests into execution-time `run` usage. When a tool
   cannot consume inherited environment variables, stop and report that it is
   incompatible with this contract.
-- Use a separate read-only BWS Machine Account for each machine. Do not claim
+- Use a separate read-only BWS Machine Account for each machine that uses BWS.
+  Do not claim
   that this removes the accepted risk of a shared high-privilege GitHub PAT.
-- `doctor` may report profile and expected-key names with status. Secret values,
-  BWS output, and Token material remain undisclosed.
+- `doctor` may report profile, expected-key, and local logical-key names with
+  status. Secret values, BWS output, and Token material remain undisclosed.
 - The manager installs separately from this skill. Installation never installs
   `bws`, changes shell startup, or creates credentials.
 - The executable is `~/.local/bin/bit-secret-manager`; files under
   `~/.local/lib/bit-secret-manager` are implementation files, not commands.
+- The private directory is `~/.config/bit-secret-manager/` with `0700`; its
+  `device.toml`, `access-token`, and `local-secrets.toml` files are `0600`.
 
 ## GitHub
 
