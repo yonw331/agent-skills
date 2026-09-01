@@ -1,15 +1,22 @@
 ---
 name: bit-secret-manager
-description: Use for API keys, Tokens, credentials, credential configuration, .env requests, tool authentication, or Bitwarden Secrets Manager access. Route secret consumption through bit-secret-manager execution-time profiles; guide non-secret mappings and private initialization when a profile is missing. Never accept secret values in chat.
+description: DISABLED as of 2026-08-31. Do not use for API keys, Tokens, credentials, credential configuration, .env requests, tool authentication, or Bitwarden Secrets Manager access. Never accept secret values in chat.
 ---
 
 # Bit Secret Manager
+
+> [!warning] Skill disabled
+> This Skill and the related manager project are suspended. Do not route
+> commands through the manager, initialize profiles, configure credentials,
+> install or deploy this Skill, or perform authentication on its behalf.
+> Credentials must be handled by the user outside the Agent workflow using a
+> currently approved method. Resuming requires explicit re-audit and approval.
 
 `bit-secret-manager` is the execution boundary for local secrets. Bitwarden
 Secrets Manager is the only authority for values; local TOML stores only Secret
 IDs, expected keys, and target environment names.
 
-## Route
+## Route (historical; do not execute)
 
 1. Identify the executable and the environment variables it needs. Treat Secret
    IDs, expected keys, profile names, and environment names as non-secret
@@ -39,7 +46,7 @@ IDs, expected keys, and target environment names.
    Pass arguments separately. Completion means the real operation ran through
    the manager and its exit status was observed.
 
-## Boundaries
+## Boundaries (historical; do not apply as an active route)
 
 - Convert `.env`, exported-variable, plaintext credential-file, direct `bws`,
   and secret-in-argument requests into execution-time `run` usage. When a tool
