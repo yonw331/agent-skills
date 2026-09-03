@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "agent-skills 技能注册表 — 机器可读索引",
-  "updated": "2026-09-02T02:01:03Z",
+  "updated": "2026-09-03T01:19:51Z",
   "skills": [
     {
       "name": "bit-secret-manager",
@@ -44,6 +44,12 @@
       "namespace": "curated",
       "description": "拆分prd",
       "path": "curated/test-prd-splitter/"
+    },
+    {
+      "name": "test-requirement-questioning",
+      "namespace": "curated",
+      "description": "从测试视角对需求、PRD、设计方案或功能描述执行三层追问，厘清业务落地、规格架构和测试覆盖，输出可供需求确认与用例设计使用的风险和缺口模板。适用于需求澄清、设计评审、测试分析和“怎么测/有哪些风险”；不直接生成正式测试用例。",
+      "path": "curated/test-requirement-questioning/"
     },
     {
       "name": "tester-pipeline",
