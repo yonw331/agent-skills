@@ -14,6 +14,27 @@ notesmd-cli --version
 
 命令不存在时停止，不自建兼容包装器，也不猜测安装方式。
 
+## 安装依赖
+
+`notesmd-cli` 不发布到 npm；不要使用 `npm install`。安装来源是 [Yakitrak/notesmd-cli](https://github.com/Yakitrak/notesmd-cli) 的官方 GitHub Release。
+
+已在 WSL Linux x86_64 验证的用户级安装方式如下。先在 Release 页面确认目标版本、架构资产和 `checksums.txt`，再下载和校验；不要跳过校验或用未验证的 URL 替换版本号。
+
+```bash
+release=v0.3.7
+asset="notesmd-cli_0.3.7_linux_amd64.tar.gz"
+release_dir="$(mktemp -d)"
+curl -fsSLO --output-dir "$release_dir" "https://github.com/Yakitrak/notesmd-cli/releases/download/$release/$asset"
+curl -fsSLO --output-dir "$release_dir" "https://github.com/Yakitrak/notesmd-cli/releases/download/$release/checksums.txt"
+(cd "$release_dir" && grep "$asset$" checksums.txt | sha256sum -c -)
+tar -xzf "$release_dir/$asset" -C "$release_dir"
+mkdir -p "$HOME/.local/bin"
+install -m 755 "$release_dir/notesmd-cli" "$HOME/.local/bin/notesmd-cli"
+notesmd-cli --version
+```
+
+若 `$HOME/.local/bin` 不在 `PATH`，先由操作者配置 shell 环境后再继续。其他系统或架构只使用上游 README 中对应的安装方式，安装后仍须运行版本检查。
+
 ## 选择 Vault
 
 先查看默认 Vault：

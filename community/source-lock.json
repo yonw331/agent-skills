@@ -8,12 +8,16 @@
       "install_cmd": "skillhub install github-api --namespace clawhub_byungkyu",
       "note": "Requires operator-managed Maton OAuth and MATON_API_KEY; no credentials are stored by this repository."
     },
-    "@zcwl/obsidian": {
-      "source": "skillhub",
-      "version": "1.0.0",
-      "installed_at": "2026-09-03",
-      "install_cmd": "skillhub install obsidian --namespace zcwl",
-      "normalization": "Added name and description frontmatter for Codex discovery."
+    "mattpocock/skills": {
+      "source": "github",
+      "repository": "https://github.com/mattpocock/skills",
+      "revision": "3cca18b368ae95cdbdebbff572ccafa662551015",
+      "retrieved_at": "2026-09-07",
+      "path": "community/matt",
+      "skills": [
+        "ask-matt", "claude-handoff", "code-review", "codebase-design", "diagnosing-bugs", "domain-modeling", "git-guardrails-claude-code", "grill-me", "grill-with-docs", "grilling", "handoff", "implement", "improve-codebase-architecture", "loop-me", "migrate-to-shoehorn", "prototype", "research", "resolving-merge-conflicts", "scaffold-exercises", "setup-matt-pocock-skills", "setup-pre-commit", "setup-ts-deep-modules", "tdd", "teach", "to-questionnaire", "to-spec", "to-tickets", "triage", "wait-what", "wayfinder", "wizard", "writing-beats", "writing-for-agents", "writing-fragments", "writing-shape"
+      ],
+      "note": "Local Codex adaptations are retained; upstream revision identifies the community source."
     },
     "@user_51511428/anysearch": {
       "source": "skillhub",

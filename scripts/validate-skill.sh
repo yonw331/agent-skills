@@ -44,22 +44,35 @@ validate_one() {
   fi
 }
 
+skill_entrypoints() {
+  local base_dir="$1"
+  local dir child
+  for dir in "$base_dir"/*; do
+    [ -d "$dir" ] || continue
+    if [ -f "$dir/SKILL.md" ]; then
+      printf '%s\n' "$dir"
+      continue
+    fi
+    for child in "$dir"/*; do
+      [ -d "$child" ] && [ -f "$child/SKILL.md" ] && printf '%s\n' "$child"
+    done
+  done
+}
+
 if [ $# -ge 1 ]; then
   echo "校验技能: $1"
   validate_one "$1" || errors=$((errors + 1))
 else
   echo "=== 校验 curated/ ==="
-  for dir in "$REPO_DIR/curated"/*/; do
-    [ -d "$dir" ] || continue
+  while IFS= read -r dir; do
     validate_one "$dir" || errors=$((errors + 1))
-  done
+  done < <(skill_entrypoints "$REPO_DIR/curated")
 
   echo ""
   echo "=== 校验 community/ ==="
-  for dir in "$REPO_DIR/community"/*/; do
-    [ -d "$dir" ] || continue
+  while IFS= read -r dir; do
     validate_one "$dir" || errors=$((errors + 1))
-  done
+  done < <(skill_entrypoints "$REPO_DIR/community")
 fi
 
 echo ""

@@ -9,7 +9,7 @@
 ```
 agent-skills/
 ├── curated/        🏆 自研/精选技能（你亲手写的）
-├── community/      📦 社区技能本地快照（SkillHub 来源）
+├── community/      📦 社区技能本地快照（按来源分组；`matt/` 来自 mattpocock/skills）
 ├── templates/      📋 技能开发模板
 ├── scripts/        🔧 管理工具
 └── docs/           📖 文档

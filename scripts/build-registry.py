@@ -17,20 +17,31 @@ def extract_description(content):
         return m1.group(1).strip().strip('"').strip("'")
     return ''
 
+def skill_entrypoints(base_dir):
+    for directory in sorted(glob.glob(os.path.join(base_dir, '*'))):
+        if not os.path.isdir(directory):
+            continue
+        direct_entrypoint = os.path.join(directory, 'SKILL.md')
+        if os.path.isfile(direct_entrypoint):
+            yield direct_entrypoint
+            continue
+        for child in sorted(glob.glob(os.path.join(directory, '*'))):
+            entrypoint = os.path.join(child, 'SKILL.md')
+            if os.path.isdir(child) and os.path.isfile(entrypoint):
+                yield entrypoint
+
 def scan_skills(base_dir, namespace):
     skills = []
-    for d in sorted(glob.glob(os.path.join(base_dir, '*', ''))):
-        name = os.path.basename(os.path.dirname(d))
-        md_path = os.path.join(d, 'SKILL.md')
-        desc = ''
-        if os.path.isfile(md_path):
-            with open(md_path) as f:
-                desc = extract_description(f.read())
+    for md_path in skill_entrypoints(base_dir):
+        d = os.path.dirname(md_path)
+        name = os.path.basename(d)
+        with open(md_path) as f:
+            desc = extract_description(f.read())
         skills.append({
             'name': name,
             'namespace': namespace,
             'description': desc[:300],
-            'path': d
+            'path': os.path.relpath(d, '.').replace(os.sep, '/') + '/'
         })
     return skills
 
@@ -42,7 +53,9 @@ def write_skills_index(skills):
         lines.extend([f'## {labels[namespace]}', '', '| 技能 | 说明 |', '|------|------|'])
         for skill in (s for s in skills if s['namespace'] == namespace):
             description = skill['description'].replace('|', '\\|').replace('\n', ' ')
-            lines.append(f"| {skill['name']} | {description or '—'} |")
+            relative_path = skill['path'].removeprefix(f"{namespace}/").rstrip('/')
+            label = relative_path if '/' in relative_path else skill['name']
+            lines.append(f"| {label} | {description or '—'} |")
         lines.append('')
     with open('SKILLS.md', 'w') as f:
         f.write('\n'.join(lines))
