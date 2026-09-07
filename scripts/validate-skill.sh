@@ -21,7 +21,7 @@ validate_one() {
   fi
 
   # 检查 frontmatter
-  if ! head -1 "$skill_md" | grep -q "^---$"; then
+  if ! head -1 "$skill_md" | tr -d '\r' | grep -q "^---$"; then
     echo "  ❌ 缺少 frontmatter 起始 ---"
     ok=false
   fi

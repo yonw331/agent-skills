@@ -1,17 +1,19 @@
 {
   "description": "社区技能来源锁定 — 记录安装来源、版本、时间",
   "sources": {
-    "@steipete/github": {
+    "@clawhub_byungkyu/github-api": {
       "source": "skillhub",
-      "version": "1.0.0",
-      "installed_at": "2026-07-29",
-      "install_cmd": "skillhub install github --namespace steipete"
+      "version": "1.0.7",
+      "installed_at": "2026-09-03",
+      "install_cmd": "skillhub install github-api --namespace clawhub_byungkyu",
+      "note": "Requires operator-managed Maton OAuth and MATON_API_KEY; no credentials are stored by this repository."
     },
-    "@steipete/obsidian": {
+    "@zcwl/obsidian": {
       "source": "skillhub",
       "version": "1.0.0",
-      "installed_at": "2026-07-30",
-      "install_cmd": "skillhub install obsidian --namespace steipete"
+      "installed_at": "2026-09-03",
+      "install_cmd": "skillhub install obsidian --namespace zcwl",
+      "normalization": "Added name and description frontmatter for Codex discovery."
     },
     "@user_51511428/anysearch": {
       "source": "skillhub",
@@ -21,9 +23,10 @@
     },
     "agent-browser": {
       "source": "skillhub",
-      "version": "0.2.0",
-      "installed_at": "2026-07-30",
-      "install_cmd": "skillhub install agent-browser"
+      "namespace": "@zcwl",
+      "version": "0.1.0",
+      "installed_at": "2026-09-03",
+      "install_cmd": "skillhub install agent-browser --namespace zcwl"
     },
     "ima-skill": {
       "source": "skillhub",
@@ -37,15 +40,9 @@
       "installed_at": "2026-07-30",
       "install_cmd": "skillhub install n8n-workflow-automation"
     },
-    "runesleo-systematic-debugging": {
-      "source": "skillhub",
-      "version": "3.0.0",
-      "installed_at": "2026-07-30",
-      "install_cmd": "skillhub install runesleo-systematic-debugging"
-    },
     "self-improving-agent": {
       "source": "skillhub",
-      "version": "3.0.5",
+      "version": "3.0.24",
       "installed_at": "2026-08-14",
       "install_cmd": "skillhub install self-improving-agent"
     },
@@ -54,6 +51,34 @@
       "version": "1.0.6",
       "installed_at": "2026-08-06",
       "install_cmd": "skillhub install westock-data --namespace tencent-adm"
+    },
+    "multi-search-engine": {
+      "source": "workspace metadata",
+      "source_type": "_meta.json",
+      "version": "2.0.1",
+      "installed_at": "unknown",
+      "owner_id": "kn79j8kk7fb9w10jh83803j7f180a44m"
+    },
+    "nano-banana-pro": {
+      "source": "workspace metadata",
+      "source_type": "_meta.json",
+      "version": "1.0.0",
+      "installed_at": "unknown",
+      "owner_id": "local"
+    },
+    "proactive-agent": {
+      "source": "workspace metadata",
+      "source_type": "_meta.json",
+      "version": "3.1.0",
+      "installed_at": "unknown",
+      "owner_id": "kn7agvhxan0vcwfmhrjhwg4n9s802d7c2"
+    },
+    "wechat-publisher": {
+      "source": "workspace metadata",
+      "source_type": "_meta.json",
+      "version": "0.1.0",
+      "installed_at": "unknown",
+      "owner_id": "kn709dejxe94zm1rcfgk5c793n80kktj"
     }
   }
 }

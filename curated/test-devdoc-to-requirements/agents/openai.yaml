@@ -1,0 +1,4 @@
+interface:
+  display_name: "开发文档转测试需求"
+  short_description: "将技术设计文档翻译为业务易懂、可确认并可继续测试拆分的需求文档"
+  default_prompt: "Use $test-devdoc-to-requirements to convert this development design document into a test requirements confirmation document."
