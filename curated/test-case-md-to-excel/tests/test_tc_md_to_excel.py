@@ -75,7 +75,7 @@ class ExcelGeneratorTest(unittest.TestCase):
             "# 入库模块",
             "## 收货",
             "### [TC-RK-001] 完成收货",
-            "- [x] 2️⃣  已登录 | 点击完成 | 状态变为已完成",
+            "- [x] 2️⃣  已登录;已有入库单 | 打开入库单;点击完成 | 状态变为已完成;生成收货记录",
         ])
         cases = MODULE.MarkdownParser(content, "TC-入库.md").parse()
         MODULE.generate_case_numbers(cases)
@@ -88,6 +88,9 @@ class ExcelGeneratorTest(unittest.TestCase):
             self.assertEqual(9, worksheet.max_column)
             self.assertEqual("P1", worksheet["D2"].value)
             self.assertEqual("已执行", worksheet["I2"].value)
+            self.assertEqual("1.已登录\n2.已有入库单", worksheet["F2"].value)
+            self.assertEqual("1.打开入库单\n2.点击完成", worksheet["G2"].value)
+            self.assertEqual("1.状态变为已完成\n2.生成收货记录", worksheet["H2"].value)
 
 
 if __name__ == "__main__":

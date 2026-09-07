@@ -1,3 +1,3 @@
 interface:
-  display_name: "Bit Secret Manager"
-  short_description: "Route credentials through runtime profiles"
+  display_name: "Bit Secret Manager (disabled)"
+  short_description: "Disabled; do not route credentials through this Skill"

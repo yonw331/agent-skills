@@ -180,15 +180,15 @@ def format_content_with_numbering(content: str) -> str:
     """
     将分号分隔的多条内容转为编号列表。
 
-    - 分号 ; 或 ； 作为分隔符
+    - 分号 ; 或 ；，以及解析阶段保留的换行，作为分隔符
     - 如果源数据已有编号（如 "1." / "1、"），保留原样
     - 单条内容不添加编号
     """
     if not content:
         return content
 
-    # 按中英文分号分割
-    parts = re.split(r"[;；]", content)
+    # 解析器会先将分号转换为换行，因此两种分隔符都要支持。
+    parts = re.split(r"[;；\n]+", content)
     parts = [p.strip() for p in parts]
 
     # 过滤空项
@@ -207,7 +207,7 @@ def format_content_with_numbering(content: str) -> str:
     if has_numbering:
         return "\n".join(parts)
 
-    return "\n".join(f"{i}. {p}" for i, p in enumerate(parts, 1))
+    return "\n".join(f"{i}.{p}" for i, p in enumerate(parts, 1))
 
 
 def semicolon_to_newline(text: str) -> str:

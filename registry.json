@@ -1,12 +1,12 @@
 {
   "version": 1,
   "description": "agent-skills 技能注册表 — 机器可读索引",
-  "updated": "2026-08-29T03:59:28Z",
+  "updated": "2026-09-03T03:44:59Z",
   "skills": [
     {
       "name": "bit-secret-manager",
       "namespace": "curated",
-      "description": "Use for API keys, Tokens, credentials, credential configuration, .env requests, tool authentication, or Bitwarden Secrets Manager access. Route secret consumption through bit-secret-manager execution-time profiles; guide non-secret mappings and private initialization when a profile is missing. Never",
+      "description": "DISABLED as of 2026-08-31. Do not use for API keys, Tokens, credentials, credential configuration, .env requests, tool authentication, or Bitwarden Secrets Manager access. Never accept secret values in chat.",
       "path": "curated/bit-secret-manager/"
     },
     {
@@ -44,6 +44,12 @@
       "namespace": "curated",
       "description": "拆分prd",
       "path": "curated/test-prd-splitter/"
+    },
+    {
+      "name": "test-requirement-questioning",
+      "namespace": "curated",
+      "description": "从测试视角对需求、PRD、设计方案或功能描述执行三层追问，厘清业务落地、规格架构和测试覆盖，输出可供需求确认与用例设计使用的风险和缺口模板。适用于需求澄清、设计评审、测试分析和“怎么测/有哪些风险”；不直接生成正式测试用例。",
+      "path": "curated/test-requirement-questioning/"
     },
     {
       "name": "tester-pipeline",
@@ -98,6 +104,12 @@
       "namespace": "community",
       "description": "Captures learnings, errors, and corrections to enable continuous improvement. Use when: (1) A command or operation fails unexpectedly, (2) User corrects Claude ('No, that's wrong...', 'Actually...'), (3) User requests a capability that doesn't exist, (4) An external API or tool fails, (5) Claude rea",
       "path": "community/self-improving-agent/"
+    },
+    {
+      "name": "unclecheng-reduce-ai-perception-v2",
+      "namespace": "community",
+      "description": "去除文本中的AI写作痕迹，让文字读起来更像人类写作。当用户要求'去AI味'、'降AI味'、'让回复更像人话'、'润色'、'改写得更自然'时使用。检测并修复：AI高频词汇、过度结构化、虚假客观性、机械化连接词、完美主义陷阱、公式化结尾、过度修饰、情感缺失、'不是而是'假靶子/同义替换、莫名其妙的比喻、高频堆叠副词等问题。",
+      "path": "community/unclecheng-reduce-ai-perception-v2/"
     },
     {
       "name": "westock-data",
