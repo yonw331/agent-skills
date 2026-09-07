@@ -34,6 +34,19 @@ def scan_skills(base_dir, namespace):
         })
     return skills
 
+def write_skills_index(skills):
+    """Keep the human-readable index derived from the same source as registry.json."""
+    labels = {'curated': '精选技能 (curated/)', 'community': '社区技能 (community/)'}
+    lines = ['# Skills 清单', '', '> 仓库内所有技能的快速索引。', '']
+    for namespace in ('curated', 'community'):
+        lines.extend([f'## {labels[namespace]}', '', '| 技能 | 说明 |', '|------|------|'])
+        for skill in (s for s in skills if s['namespace'] == namespace):
+            description = skill['description'].replace('|', '\\|').replace('\n', ' ')
+            lines.append(f"| {skill['name']} | {description or '—'} |")
+        lines.append('')
+    with open('SKILLS.md', 'w') as f:
+        f.write('\n'.join(lines))
+
 def main():
     repo_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     os.chdir(repo_dir)
@@ -52,7 +65,9 @@ def main():
     with open('registry.json', 'w') as f:
         json.dump(registry, f, ensure_ascii=False, indent=2)
 
-    print(f'✅ registry.json 已更新 — {len(skills)} 个技能')
+    write_skills_index(skills)
+
+    print(f'✅ registry.json and SKILLS.md updated — {len(skills)} skills')
     for s in skills:
         print(f'  {s["namespace"]:>10}/{s["name"]:<30} {s["description"][:50]}')
 

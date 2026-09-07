@@ -1,13 +1,49 @@
 {
   "version": 1,
   "description": "agent-skills 技能注册表 — 机器可读索引",
-  "updated": "2026-09-03T03:44:59Z",
+  "updated": "2026-09-03T06:41:57Z",
   "skills": [
+    {
+      "name": "ask-matt",
+      "namespace": "curated",
+      "description": "Ask which skill or flow fits your situation. A router over the skills in this repo.",
+      "path": "curated/ask-matt/"
+    },
     {
       "name": "bit-secret-manager",
       "namespace": "curated",
       "description": "DISABLED as of 2026-08-31. Do not use for API keys, Tokens, credentials, credential configuration, .env requests, tool authentication, or Bitwarden Secrets Manager access. Never accept secret values in chat.",
       "path": "curated/bit-secret-manager/"
+    },
+    {
+      "name": "claude-handoff",
+      "namespace": "curated",
+      "description": "Hand the current conversation off to a fresh background agent that picks up the work immediately.",
+      "path": "curated/claude-handoff/"
+    },
+    {
+      "name": "code-review",
+      "namespace": "curated",
+      "description": "Review the changes since a fixed point (commit, branch, tag, or merge-base) along two axes — Standards (does the code follow this repo's documented coding standards?) and Spec (does the code match what the originating issue/spec asked for?). Runs both reviews in parallel sub-agents and reports them ",
+      "path": "curated/code-review/"
+    },
+    {
+      "name": "codebase-design",
+      "namespace": "curated",
+      "description": "Shared vocabulary for designing deep modules. Use when the user wants to design or improve a module's interface, find deepening opportunities, decide where a seam goes, make code more testable or AI-navigable, or when another skill needs the deep-module vocabulary.",
+      "path": "curated/codebase-design/"
+    },
+    {
+      "name": "diagnosing-bugs",
+      "namespace": "curated",
+      "description": "Diagnosis loop for hard bugs and performance regressions. Use when the user says \"diagnose\"/\"debug this\", or reports something broken/throwing/failing/slow.",
+      "path": "curated/diagnosing-bugs/"
+    },
+    {
+      "name": "domain-modeling",
+      "namespace": "curated",
+      "description": "Build and sharpen a project's domain model. Use when the user wants to pin down domain terminology or a ubiquitous language, record an architectural decision, or when another skill needs to maintain the domain model.",
+      "path": "curated/domain-modeling/"
     },
     {
       "name": "drawio-skill",
@@ -16,10 +52,124 @@
       "path": "curated/drawio-skill/"
     },
     {
+      "name": "git-guardrails-claude-code",
+      "namespace": "curated",
+      "description": "Set up Claude Code hooks to block dangerous git commands (push, reset --hard, clean, branch -D, etc.) before they execute. Use when user wants to prevent destructive git operations, add git safety hooks, or block git push/reset in Claude Code.",
+      "path": "curated/git-guardrails-claude-code/"
+    },
+    {
+      "name": "grill-me",
+      "namespace": "curated",
+      "description": "A relentless interview to sharpen a plan or design.",
+      "path": "curated/grill-me/"
+    },
+    {
+      "name": "grill-with-docs",
+      "namespace": "curated",
+      "description": "A relentless interview to sharpen a plan or design, which also creates docs (ADR's and glossary) as we go.",
+      "path": "curated/grill-with-docs/"
+    },
+    {
+      "name": "grilling",
+      "namespace": "curated",
+      "description": "Grill the user relentlessly about a plan, decision, or idea. Use when the user wants to stress-test their thinking, or uses any 'grill' trigger phrases.",
+      "path": "curated/grilling/"
+    },
+    {
+      "name": "handoff",
+      "namespace": "curated",
+      "description": "Compact the current conversation into a handoff document for another agent to pick up.",
+      "path": "curated/handoff/"
+    },
+    {
+      "name": "implement",
+      "namespace": "curated",
+      "description": "Implement a piece of work based on a spec or set of tickets.",
+      "path": "curated/implement/"
+    },
+    {
+      "name": "improve-codebase-architecture",
+      "namespace": "curated",
+      "description": "Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you pick.",
+      "path": "curated/improve-codebase-architecture/"
+    },
+    {
+      "name": "loop-me",
+      "namespace": "curated",
+      "description": "Grill me about specs for the workflows I want to build, within this workspace.",
+      "path": "curated/loop-me/"
+    },
+    {
+      "name": "migrate-to-shoehorn",
+      "namespace": "curated",
+      "description": "Migrate test files from `as` type assertions to @total-typescript/shoehorn. Use when user mentions shoehorn, wants to replace `as` in tests, or needs partial test data.",
+      "path": "curated/migrate-to-shoehorn/"
+    },
+    {
+      "name": "obsidian",
+      "namespace": "curated",
+      "description": "使用 notesmd-cli 管理 Obsidian Vault 中的笔记、内容搜索、创建、移动和删除。处理 Vault 文件或需要保持 Wiki 链接时使用。",
+      "path": "curated/obsidian/"
+    },
+    {
       "name": "out-setup",
       "namespace": "curated",
       "description": "建立可复用的收口目录骨架（0out）——交付物唯一出口。含 AGENTS.md 行为规范（回写策略/索引格式/命名规范/禁止事项）、INDEX.md 双链索引、目录用途划分。当用户提到\"收口目录\"\"交付物目录\"\"outputs 重构\"\"目录骨架\"\"目录管理方案\"时使用。",
       "path": "curated/out-setup/"
+    },
+    {
+      "name": "prototype",
+      "namespace": "curated",
+      "description": "Build a throwaway prototype to answer a design question. Use when the user wants to sanity-check whether a state model or logic feels right, or explore what a UI should look like.",
+      "path": "curated/prototype/"
+    },
+    {
+      "name": "research",
+      "namespace": "curated",
+      "description": "Investigate a question against high-trust primary sources and capture the findings as a Markdown file in the repo. Use when the user wants a topic researched, docs or API facts gathered, or reading legwork delegated to a background agent.",
+      "path": "curated/research/"
+    },
+    {
+      "name": "resolving-merge-conflicts",
+      "namespace": "curated",
+      "description": "Use when you need to resolve an in-progress git merge/rebase conflict.",
+      "path": "curated/resolving-merge-conflicts/"
+    },
+    {
+      "name": "scaffold-exercises",
+      "namespace": "curated",
+      "description": "Create exercise directory structures with sections, problems, solutions, and explainers that pass linting. Use when user wants to scaffold exercises, create exercise stubs, or set up a new course section.",
+      "path": "curated/scaffold-exercises/"
+    },
+    {
+      "name": "setup-matt-pocock-skills",
+      "namespace": "curated",
+      "description": "Configure this repo for the engineering skills — set up its issue tracker, triage label vocabulary, and domain doc layout. Run once before first use of the other engineering skills.",
+      "path": "curated/setup-matt-pocock-skills/"
+    },
+    {
+      "name": "setup-pre-commit",
+      "namespace": "curated",
+      "description": "Set up Husky pre-commit hooks with lint-staged (Prettier), type checking, and tests in the current repo. Use when user wants to add pre-commit hooks, set up Husky, configure lint-staged, or add commit-time formatting/typechecking/testing.",
+      "path": "curated/setup-pre-commit/"
+    },
+    {
+      "name": "setup-ts-deep-modules",
+      "namespace": "curated",
+      "description": "Wire dependency-cruiser into a TypeScript repo so each package is a deep module — implementation hidden in subfolders, reachable only through its entry-point files. User-invoked.",
+      "path": "curated/setup-ts-deep-modules/"
+    },
+    {
+      "name": "tdd",
+      "namespace": "curated",
+      "description": "Test-driven development. Use when the user wants to build features or fix bugs test-first, mentions \"red-green-refactor\", or wants integration tests.",
+      "path": "curated/tdd/"
+    },
+    {
+      "name": "teach",
+      "namespace": "curated",
+      "description": "Teach the user a new skill or concept, within this workspace.",
+      "path": "curated/teach/"
     },
     {
       "name": "test-case-generator",
@@ -40,6 +190,12 @@
       "path": "curated/test-devdoc-to-prd/"
     },
     {
+      "name": "test-devdoc-to-requirements",
+      "namespace": "curated",
+      "description": "将开发视角的技术设计文档翻译为业务用户和软件测试人员易于理解、确认和继续拆分的测试需求确认文档。用于开发方案转测试需求、技术设计转业务需求、生成测试需求确认稿、先读懂功能再设计测试等场景；输入通常包含代码调用链、接口、表结构、状态机或实现约束，输出保留 BR/AB/AC、来源、缺口和推断，不直接生成测试用例。",
+      "path": "curated/test-devdoc-to-requirements/"
+    },
+    {
       "name": "test-prd-splitter",
       "namespace": "curated",
       "description": "拆分prd",
@@ -58,9 +214,75 @@
       "path": "curated/tester-pipeline/"
     },
     {
+      "name": "to-questionnaire",
+      "namespace": "curated",
+      "description": "Turn a decision you can't fully answer into a questionnaire for someone else to fill in.",
+      "path": "curated/to-questionnaire/"
+    },
+    {
+      "name": "to-spec",
+      "namespace": "curated",
+      "description": "Turn the current conversation into a spec and publish it to the project issue tracker — no interview, just synthesis of what you've already discussed.",
+      "path": "curated/to-spec/"
+    },
+    {
+      "name": "to-tickets",
+      "namespace": "curated",
+      "description": "Break a plan, spec, or the current conversation into a set of tracer-bullet tickets, each declaring its blocking edges, published to the configured tracker — edges as text in one file per ticket locally, or native blocking links on a real tracker.",
+      "path": "curated/to-tickets/"
+    },
+    {
+      "name": "triage",
+      "namespace": "curated",
+      "description": "Move issues and external PRs through a state machine of triage roles — categorise, verify, grill if needed, and write agent-ready briefs.",
+      "path": "curated/triage/"
+    },
+    {
+      "name": "wait-what",
+      "namespace": "curated",
+      "description": "Stop. That last message did not land — re-pitch it.",
+      "path": "curated/wait-what/"
+    },
+    {
+      "name": "wayfinder",
+      "namespace": "curated",
+      "description": "Plan a huge chunk of work — more than one agent session can hold — as a shared map of decision tickets on your issue tracker, and resolve them one at a time until the way to the destination is clear.",
+      "path": "curated/wayfinder/"
+    },
+    {
+      "name": "wizard",
+      "namespace": "curated",
+      "description": "Generate an interactive bash wizard that walks a human through steps only they can perform. Use when provisioning infrastructure, setting up credentials or CI secrets, walking an unfamiliar third-party dashboard, or running a one-off migration or cutover. Don't invoke this for steps the agent can pe",
+      "path": "curated/wizard/"
+    },
+    {
+      "name": "writing-beats",
+      "namespace": "curated",
+      "description": "Writing, exploit — assemble raw material into a journey of beats, grounding each term before a beat leans on it.",
+      "path": "curated/writing-beats/"
+    },
+    {
+      "name": "writing-for-agents",
+      "namespace": "curated",
+      "description": "Writing documents for agents. Use when creating or editing skills, or modifying AGENTS.md or CLAUDE.md.",
+      "path": "curated/writing-for-agents/"
+    },
+    {
+      "name": "writing-fragments",
+      "namespace": "curated",
+      "description": "Writing, explore — mine raw fragments, no structure yet.",
+      "path": "curated/writing-fragments/"
+    },
+    {
+      "name": "writing-shape",
+      "namespace": "curated",
+      "description": "Writing, exploit — shape raw material into an article, paragraph by paragraph.",
+      "path": "curated/writing-shape/"
+    },
+    {
       "name": "agent-browser",
       "namespace": "community",
-      "description": "A fast Rust-based headless browser automation CLI with Node.js fallback that enables AI agents to navigate, click, type, and snapshot pages via structured commands.",
+      "description": "|-",
       "path": "community/agent-browser/"
     },
     {
@@ -72,7 +294,7 @@
     {
       "name": "github",
       "namespace": "community",
-      "description": "GitHub集成工具，支持Issues管理、PR操作、CI运行监控、API查询。适用于代码审查、项目跟踪、自动化工作流。",
+      "description": "GitHub API integration with managed OAuth. Access repositories, issues, pull requests, commits, branches, and users. Use this skill when users want to interact with GitHub repositories, manage issues and PRs, search code, or automate workflows. For other third party apps, use the api-gateway skill (",
       "path": "community/github/"
     },
     {
@@ -82,22 +304,34 @@
       "path": "community/ima-skill/"
     },
     {
+      "name": "multi-search-engine",
+      "namespace": "community",
+      "description": "Multi search engine integration with 17 engines (8 CN + 9 Global). Supports advanced search operators, time filters, site search, privacy engines, and WolframAlpha knowledge queries. No API keys required.",
+      "path": "community/multi-search-engine/"
+    },
+    {
       "name": "n8n-workflow-automation",
       "namespace": "community",
       "description": "Designs and outputs n8n workflow JSON with robust triggers, idempotency, error handling, logging, retries, and human-in-the-loop review queues. Use when you need an auditable automation that won’t silently fail.",
       "path": "community/n8n-workflow-automation/"
     },
     {
+      "name": "nano-banana-pro",
+      "namespace": "community",
+      "description": "AI图像生成与编辑工具，基于Gemini 3 Pro Image。支持文本生成图像、图像编辑、多分辨率输出（1K/2K/4K）。",
+      "path": "community/nano-banana-pro/"
+    },
+    {
       "name": "obsidian",
       "namespace": "community",
-      "description": "Work with Obsidian vaults (plain Markdown notes) and automate via obsidian-cli.",
+      "description": "Directly manage Obsidian vault files when creating, reading, editing, or organizing Markdown notes.",
       "path": "community/obsidian/"
     },
     {
-      "name": "runesleo-systematic-debugging",
+      "name": "proactive-agent",
       "namespace": "community",
-      "description": "Four-phase debugging framework that ensures root cause investigation before attempting fixes. Never jump to solutions.",
-      "path": "community/runesleo-systematic-debugging/"
+      "description": "Transform AI agents from task-followers into proactive partners that anticipate needs and continuously improve. Now with WAL Protocol, Working Buffer, Autonomous Crons, and battle-tested patterns. Part of the Hal Stack 🦞",
+      "path": "community/proactive-agent/"
     },
     {
       "name": "self-improving-agent",
@@ -110,6 +344,12 @@
       "namespace": "community",
       "description": "去除文本中的AI写作痕迹，让文字读起来更像人类写作。当用户要求'去AI味'、'降AI味'、'让回复更像人话'、'润色'、'改写得更自然'时使用。检测并修复：AI高频词汇、过度结构化、虚假客观性、机械化连接词、完美主义陷阱、公式化结尾、过度修饰、情感缺失、'不是而是'假靶子/同义替换、莫名其妙的比喻、高频堆叠副词等问题。",
       "path": "community/unclecheng-reduce-ai-perception-v2/"
+    },
+    {
+      "name": "wechat-publisher",
+      "namespace": "community",
+      "description": "一键发布 Markdown 到微信公众号草稿箱。基于 wenyan-cli，支持多主题、代码高亮、图片自动上传。",
+      "path": "community/wechat-publisher/"
     },
     {
       "name": "westock-data",
