@@ -22,10 +22,10 @@
 
 | 技能 | 说明 |
 |------|------|
-| agent-browser | \|- |
+| agent-browser | \|- 功能涵盖:。Use when 用户需要agent-browser-相关功能时使用。不适用于超出本技能能力范围的复杂需求。适用于独立开发者、企业团队和自动化工作流场景。支持中文交互，无需复杂配置即开即用。提供结构化输出和错误处理机制。 Headless browser automation CLI optimized for AI agents with accessibility tree snapshots and ref。Use when 需要AI模型调用、智能对话、Agent编排、LLM应用时使用。不适用于需要100%确定性的关键决策。 |
 | anysearch | Real-time search engine supporting web search, vertical domain search, parallel batch search, and URL content extraction. |
 | github | GitHub API integration with managed OAuth. Access repositories, issues, pull requests, commits, branches, and users. Use this skill when users want to interact with GitHub repositories, manage issues and PRs, search code, or automate workflows. For other third party apps, use the api-gateway skill ( |
-| ima-skill | 统一的 IMA OpenAPI 技能，支持笔记管理和知识库操作。 当用户提到知识库、资料库、笔记、备忘录、记事，或者想要上传文件、添加网页到知识库、 搜索知识库内容、搜索/浏览/创建/编辑笔记时，使用此 skill。 即使用户没有明确说"知识库"或"笔记"，只要意图涉及文件上传到知识库、网页收藏、 知识搜索、个人文档存取（如"帮我记一下"、"搜一下知识库里有没有XX"），也应触发此 skill。 homepage: https://ima.qq.com metadata: openclaw: emoji: '🔧' requires: { env: ['IMA_OPENAPI_CLIENTID' |
+| ima-skill | 统一的 IMA OpenAPI 技能，支持笔记管理和知识库操作。 当用户提到知识库、资料库、笔记、备忘录、记事，或者想要上传文件、添加网页到知识库、 搜索知识库内容、搜索/浏览/创建/编辑笔记时，使用此 skill。 即使用户没有明确说"知识库"或"笔记"，只要意图涉及文件上传到知识库、网页收藏、 知识搜索、个人文档存取（如"帮我记一下"、"搜一下知识库里有没有XX"），也应触发此 skill。 |
 | matt/ask-matt | Ask which skill or flow fits your situation. A router over the skills in this repo. |
 | matt/claude-handoff | Hand the current conversation off to a fresh background agent that picks up the work immediately. |
 | matt/code-review | Review the changes since a fixed point (commit, branch, tag, or merge-base) along two axes — Standards (does the code follow this repo's documented coding standards?) and Spec (does the code match what the originating issue/spec asked for?). Runs both reviews in parallel sub-agents and reports them  |
@@ -65,6 +65,7 @@
 | n8n-workflow-automation | Designs and outputs n8n workflow JSON with robust triggers, idempotency, error handling, logging, retries, and human-in-the-loop review queues. Use when you need an auditable automation that won’t silently fail. |
 | nano-banana-pro | AI图像生成与编辑工具，基于Gemini 3 Pro Image。支持文本生成图像、图像编辑、多分辨率输出（1K/2K/4K）。 |
 | proactive-agent | Transform AI agents from task-followers into proactive partners that anticipate needs and continuously improve. Now with WAL Protocol, Working Buffer, Autonomous Crons, and battle-tested patterns. Part of the Hal Stack 🦞 |
+| python-testing | Python testing strategies using pytest, TDD methodology, fixtures, mocking, parametrization, and coverage requirements. |
 | self-improving-agent | Captures learnings, errors, and corrections to enable continuous improvement. Use when: (1) A command or operation fails unexpectedly, (2) User corrects Claude ('No, that's wrong...', 'Actually...'), (3) User requests a capability that doesn't exist, (4) An external API or tool fails, (5) Claude rea |
 | unclecheng-reduce-ai-perception-v2 | 去除文本中的AI写作痕迹，让文字读起来更像人类写作。当用户要求'去AI味'、'降AI味'、'让回复更像人话'、'润色'、'改写得更自然'时使用。检测并修复：AI高频词汇、过度结构化、虚假客观性、机械化连接词、完美主义陷阱、公式化结尾、过度修饰、情感缺失、'不是而是'假靶子/同义替换、莫名其妙的比喻、高频堆叠副词等问题。 |
 | wechat-publisher | 一键发布 Markdown 到微信公众号草稿箱。基于 wenyan-cli，支持多主题、代码高亮、图片自动上传。 |

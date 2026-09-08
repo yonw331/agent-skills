@@ -28,6 +28,24 @@ cat SKILLS.md
 ./scripts/deploy-curated-skill.sh install <skill-name> <workspace>/skills
 ```
 
+## 本地质量检查
+
+管理脚本使用 Python 3 和 `scripts/requirements.txt` 中固定的 PyYAML。
+在自己的虚拟环境中安装依赖后执行：
+
+```bash
+python -m pip install -r scripts/requirements.txt
+python -m unittest discover -s tests -v
+bash scripts/validate-skill.sh
+bash scripts/build-registry.sh
+```
+
+校验与索引使用同一技能包边界：分组目录递归查找，遇到技能入口后不再把
+包内同名配套文档注册成独立技能。当前为 59 个技能包，而非 61 个同名文件。
+校验会解析 Frontmatter，拒绝语法错误、重复键、缺失闭合标记和非字符串的
+`name` / `description`；允许合法社区扩展字段，支持 CRLF 和 UTF-8 BOM。
+错误输出只显示路径与位置，不复制源内容。该校验不等于运行环境或技能业务验收。
+
 ## 技能来源说明
 
 | 来源 | 路径 | 说明 |

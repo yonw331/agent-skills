@@ -4,10 +4,8 @@ version: 1.0.0
 description: "AI图像生成与编辑工具，基于Gemini 3 Pro Image。支持文本生成图像、图像编辑、多分辨率输出（1K/2K/4K）。"
 description_zh: "AI 图片生成与编辑（支持 4K）"
 description_en: "AI image generation & editing (up to 4K)"
-tags: [生成创意图像和插图, 编辑现有图片（裁剪、调整、风格转换）, 批量图像处理, 创建营销素材和UI设计稿]
-tags: [image, ai, generation, editing]
+tags: [生成创意图像和插图, 编辑现有图片（裁剪、调整、风格转换）, 批量图像处理, 创建营销素材和UI设计稿, image, ai, generation, editing, python, uv package manager]
 difficulty: intermediate
-tags: [python, uv package manager]
 ---
 
 # Nano Banana Pro 图像生成与编辑

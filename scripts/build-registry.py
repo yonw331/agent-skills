@@ -1,42 +1,16 @@
 #!/usr/bin/env python3
 """从 SKILL.md 自动构建 registry.json"""
 
-import json, os, re, glob
+import json, os
 from datetime import datetime, timezone
-
-def extract_description(content):
-    """从 SKILL.md frontmatter 提取 description"""
-    # 先试多行 literal block: description: |\n  内容
-    m2 = re.search(r'^description:\s*(\|)\s*$(.+?)^---', content, re.MULTILINE | re.DOTALL)
-    if m2:
-        lines = [l.strip() for l in m2.group(2).split('\n') if l.strip()]
-        return ' '.join(lines)
-    # 单行: description: 拆分prd
-    m1 = re.search(r'^description:\s*(\S.*?)$', content, re.MULTILINE)
-    if m1:
-        return m1.group(1).strip().strip('"').strip("'")
-    return ''
-
-def skill_entrypoints(base_dir):
-    for directory in sorted(glob.glob(os.path.join(base_dir, '*'))):
-        if not os.path.isdir(directory):
-            continue
-        direct_entrypoint = os.path.join(directory, 'SKILL.md')
-        if os.path.isfile(direct_entrypoint):
-            yield direct_entrypoint
-            continue
-        for child in sorted(glob.glob(os.path.join(directory, '*'))):
-            entrypoint = os.path.join(child, 'SKILL.md')
-            if os.path.isdir(child) and os.path.isfile(entrypoint):
-                yield entrypoint
+from skill_metadata import read_skill, skill_entrypoints
 
 def scan_skills(base_dir, namespace):
     skills = []
     for md_path in skill_entrypoints(base_dir):
         d = os.path.dirname(md_path)
         name = os.path.basename(d)
-        with open(md_path) as f:
-            desc = extract_description(f.read())
+        desc = " ".join(read_skill(md_path)["description"].split())
         skills.append({
             'name': name,
             'namespace': namespace,

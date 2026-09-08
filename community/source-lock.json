@@ -1,6 +1,21 @@
 {
   "description": "社区技能来源锁定 — 记录安装来源、版本、时间",
   "sources": {
+    "Luohaothu/everything-codex:python-testing": {
+      "source": "github",
+      "repository": "https://github.com/Luohaothu/everything-codex",
+      "revision": "95e11d51fd757b515cb07042e0ba4bc2c413a6e0",
+      "upstream_path": "skills/python-testing",
+      "path": "community/python-testing",
+      "verified_at": "2026-09-08",
+      "files": {
+        "SKILL.md": {
+          "sha256": "98ce1865de021c57f416bb41c9630a9d0ee85c790e8d512d4a8c9f2ebc63b501",
+          "bytes": 18850
+        }
+      },
+      "note": "User-confirmed source; pinned upstream, repository and global SKILL.md matched byte-for-byte. The upstream directory contains only SKILL.md."
+    },
     "@clawhub_byungkyu/github-api": {
       "source": "skillhub",
       "version": "1.0.7",
@@ -30,7 +45,8 @@
       "namespace": "@zcwl",
       "version": "0.1.0",
       "installed_at": "2026-09-03",
-      "install_cmd": "skillhub install agent-browser --namespace zcwl"
+      "install_cmd": "skillhub install agent-browser --namespace zcwl",
+      "note": "2026-09-08 local compatibility fix: removed stray summary continuation and normalized the tools list so Codex can parse YAML. Upstream version and skill body are unchanged."
     },
     "ima-skill": {
       "source": "skillhub",
@@ -64,6 +80,7 @@
       "owner_id": "kn79j8kk7fb9w10jh83803j7f180a44m"
     },
     "nano-banana-pro": {
+      "note": "2026-09-08 local YAML repair: merged three duplicate tags keys into one list, retaining every tag. Runtime deployment requires separate confirmation.",
       "source": "workspace metadata",
       "source_type": "_meta.json",
       "version": "1.0.0",

@@ -4,7 +4,6 @@ name: agent-browser
 version: "0.1.0"
 displayName: Agent Browser
 summary: "无头浏览器自动化CLI,为AI Agent优化,支持无障碍树快照与引用提取,精准网页操作"
-  tree snapshots and ref...
 license: MIT
 description: |-
   |- 功能涵盖:。Use when 用户需要agent-browser-相关功能时使用。不适用于超出本技能能力范围的复杂需求。适用于独立开发者、企业团队和自动化工作流场景。支持中文交互，无需复杂配置即开即用。提供结构化输出和错误处理机制。
@@ -15,8 +14,8 @@ tags:
 - Research
 - Automation
 tools:
-  - - read
-- exec
+  - read
+  - exec
 ---
 
 > **核心功能**: 本技能提供中文交互、化工作流场景等能力。
