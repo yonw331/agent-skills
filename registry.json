@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "agent-skills 技能注册表 — 机器可读索引",
-  "updated": "2026-09-07T15:06:16Z",
+  "updated": "2026-09-08T01:59:15Z",
   "skills": [
     {
       "name": "bit-secret-manager",
@@ -326,6 +326,12 @@
       "namespace": "community",
       "description": "Transform AI agents from task-followers into proactive partners that anticipate needs and continuously improve. Now with WAL Protocol, Working Buffer, Autonomous Crons, and battle-tested patterns. Part of the Hal Stack 🦞",
       "path": "community/proactive-agent/"
+    },
+    {
+      "name": "python-testing",
+      "namespace": "community",
+      "description": "Python testing strategies using pytest, TDD methodology, fixtures, mocking, parametrization, and coverage requirements.",
+      "path": "community/python-testing/"
     },
     {
       "name": "self-improving-agent",
